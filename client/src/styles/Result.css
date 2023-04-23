@@ -1,0 +1,133 @@
+/* ResultTable.css */
+.card-text-typing {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40, end);
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* what is this above styling? */
+
+/* This CSS class sets up the card text to have an overflow hidden, 
+  so the text won't be visible initially. Then, it uses a CSS animation 
+  called typing with a duration of 2 seconds and 40 steps to simulate typing effect. */
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+}
+
+h5 {
+    margin: 0 auto;
+}
+
+#underlines {
+    width: 100%;
+    max-width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+
+.btn-close {
+    background-color: red;
+    border-radius: 100px;
+    padding: 0.5em;
+    font-size: large;
+    margin: 1em;
+}
+
+
+.popwind {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    border-color: aqua;
+    border-radius: 2%;
+    font-size: x-large;
+}
+
+.popwind-inside {
+    position: relative;
+    margin: 0;
+    background-color: rgb(255, 255, 255);
+    padding: 0.1rem;
+    border-radius: 5px;
+    width: 80%;
+    max-height: 80%;
+    overflow: auto;
+}
+
+#closebutton {
+    background-color: red;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+    z-index: 2;
+}
+
+
+
+#closebutton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5rem;
+    z-index: 2;
+    /* add z-index here */
+}
+
+
+.wave-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.wave-effect:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    opacity: 0.3;
+    background-color: #fff;
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    100% {
+        width: 200%;
+        height: 200%;
+        opacity: 0;
+    }
+}
+
+.wave-light:after {
+    background-color: rgba(255, 255, 255, 0.4);
+}

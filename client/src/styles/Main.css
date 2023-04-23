@@ -1,0 +1,65 @@
+.card-body {
+    font-family: 'Dosis', sans-serif;
+    font-style: italic;
+    font-size: x-large
+}
+
+.btn {
+    font-family: 'Dosis', sans-serif;
+    cursor: pointer;
+
+}
+
+.btn:before,
+.btn:after {
+    font-family: 'Dosis', sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-title {
+    font-size: 2em;
+    font-weight: bold;
+    color: #ff0000;
+    text-shadow: #fff 2px solid;
+    font-family: 'Dancing Script', cursive;
+
+}
+
+.card-title:hover {
+    font-size: 3.2em;
+    font-weight: italic;
+    color: rgb(255, 0, 43);
+    text-shadow: 0 0 5px #fff;
+    font-family: 'Dancing Script', cursive;
+    transition: all 0.3s ease;
+    transform: rotate(-2deg);
+}
+
+
+.card-title:after {
+    font-size: 3em;
+    font-weight: italic;
+
+    font-family: 'Dancing Script', cursive;
+
+}
+
+.container {
+    background-color: rgb(47, 34, 34);
+    opacity: 0.7;
+    background-size: cover;
+    background-position: center;
+    background-repeat: none;
+}
+
+.userid {
+    border: none;
+    border-bottom: 2px solid #00ff80;
+    border-radius: 4px;
+}
