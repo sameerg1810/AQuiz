@@ -9,7 +9,7 @@ export default function ResultTable() {
   const [isVisible] = useState(true);
 
   useEffect(() => {
-    getServerData(`http://localhost:5000/result`, (res) => {
+    getServerData(`https://qiz.onrender.com/result`, (res) => {
       setData(res);
     });
     console.log("result table data.....", data);
