@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+import React from "react";
 import "../styles/App.css";
 import "bootswatch/dist/quartz/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";

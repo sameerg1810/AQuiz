@@ -51,7 +51,7 @@ export default function Quiz() {
     const totalPoints = queue.length * 10;
     const earnPoints = earnPoints_Number(result, answers, 10);
     const flag = flagResult(totalPoints, earnPoints);
-    fetch(`http://localhost:5000/result`, {
+    fetch(`https://qiz.onrender.com/result`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
