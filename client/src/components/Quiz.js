@@ -1,17 +1,31 @@
 import React, { useState } from "react";
 import Questions from "./Questions";
+import Timer from "react-compound-timer";
 import "../styles/App.css";
-
 import { MoveNextQuestion, MovePrevQuestion } from "../hooks/FetchQuestion";
 import { PushAnswer } from "../hooks/setResult";
 import { earnPoints_Number, flagResult } from "../helper/helper";
 /** redux store import */
 import { useSelector, useDispatch } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Quiz() {
+  const notify = () =>
+    toast("You are about to exit the quiz..!", {
+      position: "top-center",
+      autoClose: 10000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: 1,
+      progressBar: true,
+      theme: "colored",
+    });
   const [check, setChecked] = useState(undefined);
-
+  const navigate = useNavigate();
   const result = useSelector((state) => state.result.result);
   const { queue, trace } = useSelector((state) => state.questions);
   const dispatch = useDispatch();
@@ -79,10 +93,65 @@ export default function Quiz() {
   return (
     <div className="container">
       <h1 className="title">Quiz Application</h1>
+      <ToastContainer
+        position="top-center"
+        autoClose={10000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      <button
+        className="moon-container quit-btn"
+        onClick={() => {
+          notify();
+          setTimeout(() => {
+            navigate("/result");
+          }, 10000);
+        }}
+      >
+        <div className="moon">
+          <div className="mancha2"></div>
+        </div>
+        <div className="moon-text">Quit</div>
+      </button>
 
       {/* display questions */}
       <Questions onChecked={onChecked} />
 
+      <div className="timer-container mb-1">
+        {" "}
+        <h2 className="timer-label text-center">EVIL SCI-FI TIMER</h2>
+        <div className="timer">
+          <Timer
+            initialTime={60 * 1000}
+            direction="backward"
+            timeToUpdate={10}
+            checkpoints={[
+              {
+                time: 0,
+                callback: () => {
+                  alert("countdown finished");
+                  navigate("/Result");
+                },
+              },
+            ]}
+          >
+            <div className="timer">
+              <span style={{ fontSize: 32 }}>
+                <Timer.Minutes />:
+              </span>
+              <span style={{ fontSize: 32 }}>
+                <Timer.Seconds />
+              </span>
+            </div>
+          </Timer>
+        </div>
+      </div>
       <div className="grid">
         {trace > 0 ? (
           <button className="btn prev" onClick={onPrev}>

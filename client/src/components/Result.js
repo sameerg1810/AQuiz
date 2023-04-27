@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../styles/Result.css";
 import { Link } from "react-router-dom";
 import "../styles/App.css";
 import ResultTable from "./ResultTable";
@@ -164,20 +163,18 @@ export default function Result() {
           >
             Show Result Table
           </button>
-
-          <button className="btn btn-secondary m-1">Quit</button>
         </div>
       </div>
       {showResultTable && (
         <div className="popwind">
+          <button
+            className="btn btn-secondary m-1 waves-effect waves-light"
+            onClick={handleCloseResultTable}
+            id="closebutton"
+          >
+            Close
+          </button>
           <div className="popwind-inside">
-            <button
-              className="btn btn-secondary m-1 waves-effect waves-light"
-              onClick={handleCloseResultTable}
-              id="closebutton"
-            >
-              Close
-            </button>
             <ResultTable />
           </div>
         </div>
